@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}{% endblock %} - Escola de Música</title>
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+</head>
+<body>
+<nav class="container">
+    <ul>
+        <li><strong>Escola de Música</strong></li>
+    </ul>
+    <ul>
+        <li><a href="#">Sinfonias</a></li>
+        <li><a href="{% url 'musicos' %}">Músicos</a></li>
+        <li><a href="{% url 'index' %}" role="button">Início</a></li>
+    </ul>
+</nav>
+{% block conteudo %}{% endblock %}
+</body>
+</html>
