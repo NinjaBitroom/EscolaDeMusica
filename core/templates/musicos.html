@@ -5,13 +5,50 @@
 {% block conteudo %}
     <main class="container">
         <h1>Músicos</h1>
-        <p>Veja nossos músicos!</p>
+        <section>
+            <div class="grid">
+                <p>Veja nossos músicos!</p>
+                <div></div>
+                <div></div>
+                <a href="{% url 'musicos_create' %}" role="button">Adicionar músico</a>
+            </div>
+        </section>
+        <section>
+            <div class="grid">
+                <div>
+                    <strong>Nome</strong>
+                </div>
+                <div>
+                    <strong>Nacionalidade</strong>
+                </div>
+                <div>
+                    <strong>Nascimento</strong>
+                </div>
+                <div>
+                    <strong>Ações</strong>
+                </div>
+            </div>
+            <br><hr>
+        </section>
         {% for musico in musicos %}
-            <p>
-                <mark>{{ musico.nome }}</mark> -
-                <strong>{{ musico.nacionalidade }}</strong> -
-                <small>{{ musico.nascimento }}</small>
-            </p>
+            <section>
+                <div class="grid">
+                    <div>
+                        <mark>{{ musico.nome }}</mark>    
+                    </div>
+                    <div>
+                        <strong>{{ musico.nacionalidade }}</strong>
+                    </div>
+                    <div>
+                        <small>{{ musico.nascimento }}</small>
+                    </div>
+                    <div>
+                        <a href="{% url 'musicos_update' musico.id %}" role="button">Editar</a>
+                        <a href="{% url 'musicos_delete' musico.id %}" role="button">Excluir</a>
+                    </div>
+                </div>
+                <br><hr>
+            </section>
         {% empty %}
             <h1>Nenhum músico cadastrado</h1>
         {% endfor %}

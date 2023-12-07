@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %}
+	Formulário Músico
+{% endblock %}
+{% block conteudo %}
+	<main class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <button type="submit">Salvar</button>
+            <a href="{% url 'musicos' %}" role="button" class="container-fluid secondary">
+                Cancelar
+            </a>
+        </form>
+    </main>
+{% endblock %}

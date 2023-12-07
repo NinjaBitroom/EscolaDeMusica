@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block titulo %}
+	Excluir
+{% endblock %}
+{% block conteudo %}
+    <main class="container">
+        <h1>Excluir</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>Confirma a exclusão de {{ object.nome }}</p>
+            <input type="submit" value="Confirmar" class="contrast">
+            <a href="{% url 'musicos' %}" role="button" class="container-fluid secondary">Cancelar</a>
+        </form>
+    </main>
+{% endblock %}
